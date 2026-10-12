@@ -2,7 +2,6 @@
 from menus.menu import Menu
 from websites.books_scraper import BooksMenu
 from websites.mobile_bg_scraper import MobileBgMenu
-from websites.test_scraper import TestMenu
 import os
 
 class MainMenu(Menu):
