@@ -108,7 +108,7 @@ class BooksMenu(Menu):
             return
 
         try:
-            with open(self.OUTPUT_FILE, "w", newline="") as file:
+            with open(self.OUTPUT_FILE, "w", newline="", encoding="utf-8-sig") as file:
                 writer = csv.DictWriter(
                     file, fieldnames=["title", "price_gbp", "rating", "in_stock", "url"]
                 )
