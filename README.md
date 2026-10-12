@@ -5,5 +5,5 @@ Third-party packages: `requests` and `beautifulsoup4`
 
 Run using:
 ```powershell
-py webScraper.py
+python webScraper.py
 ```
