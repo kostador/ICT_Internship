@@ -1,3 +1,4 @@
+""" Entry point for the CLI """
 from menus.menu import Menu
 from websites.books_scraper import BooksMenu
 from websites.mobile_bg_scraper import MobileBgMenu
@@ -5,8 +6,11 @@ from websites.test_scraper import TestMenu
 import os
 
 class MainMenu(Menu):
+    """ Provide a main menu for choosing a scraper"""
     def __init__(self):
         super().__init__("Main Menu")
+
+        # each submenu points back to this menu for back navigation
         self.booksMenu = BooksMenu(parent = self)
         self.mobileMenu = MobileBgMenu(parent = self)
 
@@ -27,7 +31,7 @@ class MainMenu(Menu):
                 if output_file is not None:
                     print(f"File path: {os.path.abspath(output_file)}")
                 else:
-                    print(f"File path is uknown")
+                    print(f"File path is known")
         if total_rows != 0:
             print(f"Total rows: {total_rows}")
         else:

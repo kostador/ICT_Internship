@@ -1,3 +1,10 @@
+""""
+books.toscrape.com web scraper
+
+Provides a CLI for collecting book information and saving it in a .csv
+
+"""
+
 from menus.menu import Menu
 import csv
 import requests
@@ -43,6 +50,7 @@ class BooksMenu(Menu):
     def scrape_all_pages(self):
         self.scrape_books()
     def scrape_books(self, max_pages = None):
+        """ Collect up to max_pages of books and save them to .csv"""
         books = []
         url = self.BASE_URL
         pages_scraped = 0
@@ -93,10 +101,12 @@ class BooksMenu(Menu):
             print(f"Error: {error}")
             if not books:
                 return
+            # save partial results if next page fails
             print("Saving scraped books ...")
         if not books:
             print("No books found")
             return
+
         try:
             with open(self.OUTPUT_FILE, "w", newline="") as file:
                 writer = csv.DictWriter(
